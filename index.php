@@ -1,19 +1,7 @@
 <?php
+    include_once('connection/connection.php');
 
-   $host = 'localhost';
-   $user = 'root';
-   $password = '';
-   $database = 'test';
-
-    $con = mysqli_connect($host, $user, $password, $database);
-
-    if($con->connect_error){
-        echo $con->connect_error;
-    }else{
-        echo "Have Connection";
-        echo "<br>";
-    }
-
+    $con = connection(); // calling connection function
     
     $sql = "SELECT * FROM user";
     $result = $con->query($sql) or die ($con->error);

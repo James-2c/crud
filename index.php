@@ -1,12 +1,5 @@
 <?php
 
-
-
-    //define("host", "localhost");
-    //define("user", "root");
-   // define("password", "1234");
-   // define("database", "test");
-
    $host = 'localhost';
    $user = 'root';
    $password = '';

@@ -1,3 +1,39 @@
+<?php
+
+
+
+    //define("host", "localhost");
+    //define("user", "root");
+   // define("password", "1234");
+   // define("database", "test");
+
+   $host = 'localhost';
+   $user = 'root';
+   $password = '';
+   $database = 'test';
+
+    $con = mysqli_connect($host, $user, $password, $database);
+
+    if($con->connect_error){
+        echo $con->connect_error;
+    }else{
+        echo "Have Connection";
+        echo "<br>";
+    }
+
+    
+    $sql = "SELECT * FROM user";
+    $result = $con->query($sql) or die ($con->error);
+    $row = $result->fetch_assoc();
+  
+
+    do{
+        echo $row["user_id"].$row["username"].$row["password"];
+    }while($row = $result->fetch_assoc());
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +43,22 @@
     <title>Main</title>
 </head>
 <body>
-    <h3>Login</h3>
-    <form action="" method="post">
-        <label >Username</label>
-        <input type="text" name="username">
-        <label >Password</label>
-        <input type="text" name="password">
-        <input type="submit" name="submit">
-    </form>
+<div class="login-form">
+        <form action="" method="post">
+            <h2>Login</h2>
+            <div class="content">
+                <div class="input-field">
+                    <input type="text" placeholder="Username" name="username" id="username" autocomplete="nope">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password" name="password" id="password" autocomplete="new-password">
+                </div>
+            </div>                       
+            <div class="two-button">
+                <input type="submit" class="btn2" name="login" value="Sign in">
+                <a href="register.php" class="sign-up">Sign up</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

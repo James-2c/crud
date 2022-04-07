@@ -1,3 +1,10 @@
+tasks:
+  - name: open browser
+    command: gp open index.php
+  - name: Dev Server
+    init: npm install
+    command: npm run dev
+    
 image:
   file: .gitpod.Dockerfile
 
@@ -11,9 +18,3 @@ vscode:
   extensions:
     - felixfbecker.php-debug
 
-tasks:
-  - name: open browser
-    command: gp open index.php
-  - name: Dev Server
-    init: npm install
-    command: npm run dev

@@ -1,7 +1,9 @@
 tasks:
+  - init: npm install
+    command: npm run dev
   - name: open browser
     command: gp open index.phP
-    
+  
 image:
   file: .gitpod.Dockerfile
 

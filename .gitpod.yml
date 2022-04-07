@@ -14,4 +14,3 @@ vscode:
 tasks:
   - name: open browser
     command: gp open index.php
-              npm run dev

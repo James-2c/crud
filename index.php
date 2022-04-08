@@ -1,58 +1,60 @@
 <?php
+require 'users/users.php';
 
-include_once('connection/connection.php');
-$con = connection();
+$users = getUsers();
 
-if(!isset($_SESSION)){
-    session_start();
-}
-
-if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM account WHERE email = '$username' AND password = '$password'";
-    $result = $con->query($sql) or die ($con->error);
-    $users = $result->fetch_assoc();
-    $total = $result->num_rows;
-
-    if($total > 0){
-        $_SESSION['Level'] = $users[' clearanceLevel'];
-        echo header("Location: home.php");
-    }else{
-        echo "No account";
-    }
-
-}
-
+include 'partials/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Login</title>
-</head>
-<body>
-    <div class="login-form">
-        <form action="" method="post" >
-            <h2>Login</h2>
-            <div class="content">
-                <div class="input-field">
-                    <input type="text" placeholder="Username" name="username" id="username" autocomplete="nope">
-                </div>
-                <div class="input-field">
-                    <input type="password" placeholder="Password" name="password" id="password" autocomplete="new-password">
-                </div>
-            </div>                       
-            <div class="two-button">
-                <input type="submit" class="btn2" name="login" value="Sign in">
-                <a href="register.php" class="sign-up">Sign up</a>
-            </div>
-        </form>
-    </div>
 
-</body>
-</html>
+
+<div class="container">
+    <p>
+        <a class="btn btn-success" href="create.php">Create new User</a>
+    </p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td>
+                    <?php if (isset($user['extension'])): ?>
+                        <img style="width: 60px" src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
+                    <?php endif; ?>
+                </td>
+                <td><?php echo $user['name'] ?></td>
+                <td><?php echo $user['username'] ?></td>
+                <td><?php echo $user['email'] ?></td>
+                <td><?php echo $user['phone'] ?></td>
+                <td>
+                    <a target="_blank" href="http://<?php echo $user['website'] ?>">
+                        <?php echo $user['website'] ?>
+                    </a>
+                </td>
+                <td>
+                    <a href="view.php?id=<?php echo $user['id'] ?>" class="btn btn-sm btn-outline-info">View</a>
+                    <a href="update.php?id=<?php echo $user['id'] ?>"
+                       class="btn btn-sm btn-outline-secondary">Update</a>
+                    <form method="POST" action="delete.php">
+                        <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach;; ?>
+        </tbody>
+    </table>
+</div>
+
+<?php include 'partials/footer.php' ?>
+

@@ -1,5 +1,15 @@
 <?php
+
+if(!isset($_SESSION)){
+    session_start();
+}
+
+if(!isset($_SESSION['id'])){
+    echo header("Location: login.php");
+}
+
 require 'users/users.php';
+
 
 $users = getUsers();
 

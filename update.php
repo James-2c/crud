@@ -15,11 +15,11 @@ if (!$user) {
 }
 
 $errors = [
-    'name' => "",
-    'username' => "",
+    'firstName' => "",
+    'lastName' => "",
     'email' => "",
-    'phone' => "",
-    'website' => "",
+    'password' => "",
+    'clearanceLevel' => "",
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($isValid) {
         $user = updateUser($_POST, $userId);
-        uploadImage($_FILES['picture'], $user);
         header("Location: index.php");
     }
 }

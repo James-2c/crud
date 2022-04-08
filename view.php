@@ -18,7 +18,7 @@ if (!$user) {
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>View User: <b><?php echo $user['name'] ?></b></h3>
+            <h3>View User: <b><?php echo $user['firstName'] + " " + $user['firstName'] ?></b></h3>
         </div>
         <div class="card-body">
             <a class="btn btn-secondary" href="update.php?id=<?php echo $user['id'] ?>">Update</a>
@@ -31,7 +31,7 @@ if (!$user) {
             <tbody>
             <tr>
                 <th>Name:</th>
-                <td><?php echo $user['name'] ?></td>
+                <td><?php echo $user['firstName'] + " " + $user['firstName'] ?></td>
             </tr>
             <tr>
                 <th>Username:</th>

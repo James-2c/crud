@@ -5,19 +5,19 @@ require __DIR__ . '/users/users.php';
 
 $user = [
     'id' => '',
-    'name' => '',
-    'username' => '',
+    'firstName' => '',
+    'lastName' => '',
     'email' => '',
-    'phone' => '',
-    'website' => '',
+    'password' => '',
+    'clearanceLevel' => '',
 ];
 
 $errors = [
-    'name' => "",
-    'username' => "",
+    'firstName' => "",
+    'lastName' => "",
     'email' => "",
-    'phone' => "",
-    'website' => "",
+    'password' => "",
+    'clearanceLevel' => "",
 ];
 $isValid = true;
 
@@ -28,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($isValid) {
         $user = createUser($_POST);
-
-        uploadImage($_FILES['picture'], $user);
 
         header("Location: index.php");
     }

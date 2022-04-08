@@ -1,18 +1,18 @@
 [
     {
-        "name": "harold",
-        "username": "harold",
+        "id": 19244,
+        "firstName": "harold",
+        "lastName": "ignacio",
         "email": "bryan_james005@yahoo.com",
-        "phone": "12345",
-        "website": "wala.com",
-        "id": 144951
+        "password": "12345",
+        "clearanceLevel": "wala.com"
     },
     {
-        "name": "james",
-        "username": "jamess",
-        "email": "bryan_james005@yahoo.com",
-        "phone": "1234",
-        "website": "wala.com",
-        "id": 192445
+        "id": 19844,
+        "firstName": "james",
+        "lastName": "de guzman",
+        "email": "james@",
+        "password": "12345",
+        "clearanceLevel": "wala.com"
     }
 ]

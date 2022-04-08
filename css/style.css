@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 60%;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+table{
+    margin-top: 20px;
+}
+.view:hover{
+    color: greenyellow;
+}
+.delete:hover{
+    color: #f50b0b;
+}
+.btn{
+    border: 1px solid rgb(67, 67, 179);
+    color: rgb(10, 7, 241);
+    padding: 15px 32px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+.btn:hover{
+    background-color: rgb(95, 95, 187);
+    color: rgb(255, 255, 255);
+
+}
+.btn-logout{    
+    border: 2px solid red;
+    color: rgb(255, 1, 1);
+    padding: 10px 30px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.btn-logout:hover{    
+    background-color: #886666;
+    color: rgb(255, 255, 255);
+
+}
+.two-button{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
+.btn2{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+
+
+table{       
+    width: 100%;
+    border-collapse: collapse;
+}
+thead, tbody{
+    text-align: left;
+}
+th, td{    
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+tr:hover{
+    background-color: #ddd;
+}
+
+/* Add form */
+
+input[type=text]{    
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+input[type=submit], .sign-up{
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: rgb(78, 129, 28);
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+
+/* Login */
+
+.login-form{
+    width: 35%;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid rgb(78, 77, 77);
+    
+}
+.login-form h2{
+    text-align: center;
+}
+.content{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.input-field{
+    margin-bottom: 5px;
+}
+.login-form .input-field input{
+    font-size: 16px;    
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgb(59, 57, 57);
+    outline: none;
+    width: 100%;
+}
+.sign-up{
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: rgb(75, 160, 230);
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+/* Navigation bar */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(61, 60, 60);
+    color: rgb(253, 253, 253);
+}
+.brand-title{
+    color: tomato;
+    font-weight: 700;
+    letter-spacing: .1em;
+    font-size: 1.5rem;
+    margin: .5rem;
+    padding: .4rem;
+}
+.nav-link{
+    margin-right: .5rem;
+}
+.nav-link ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.nav-link li{
+    list-style: none;
+    font-size: 1.2rem;    
+}
+.nav-link a{
+    color: #ddd;
+    padding: .4rem;
+    display: block;
+}
+.toggle-button{
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+@media(max-width: 500px){
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .toggle-button{
+        display: flex;
+    }
+    .nav-link{
+        display: none;
+        width: 100%;
+    }
+    .nav-link ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-link ul li{
+        text-align: center;
+    }
+    .nav-link.active{
+        display: flex;
+        
+    }
+}
